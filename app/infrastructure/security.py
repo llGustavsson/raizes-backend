@@ -8,7 +8,7 @@ password_hash = PasswordHash((Argon2Hasher(),))
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
-EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
+EXPIRE_MINUTES = int(os.getenv("EXPIRE_MINUTES"))
 
 def hash_password(password: str) -> str:
     return password_hash.hash(password)
