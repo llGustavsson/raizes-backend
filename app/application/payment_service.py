@@ -41,7 +41,7 @@ class PaymentService:
         
         self.repository.create_audit_log(
             user_id=user_id,
-            action="ORDER_PAID",
+            action="PAID",
             resource_id=f"Order_{order.id}",
             details=f"Payment approved by gateway"
         )
