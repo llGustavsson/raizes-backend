@@ -12,8 +12,8 @@ api = FastAPI(
 )
 
 # Include all grouped resources
-#api.include_router(auth.router)
-#api.include_router(users.router)
-#api.include_router(products.router)
-#api.include_router(orders.router)
-#api.include_router(payments.router)
+api.include_router(auth.router)
+api.include_router(users.router)
+api.include_router(products.router)
+api.include_router(orders.router)
+api.include_router(payments.router)
