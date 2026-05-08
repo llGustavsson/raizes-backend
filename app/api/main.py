@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.infrastructure.database import engine, Base, get_db
 from app.api.routers import auth, users, products, orders, payments
+from app.api.exception_handler import register_exception_handlers
 
 # Create tables if they don't exist
 Base.metadata.create_all(bind=engine)
@@ -10,6 +11,9 @@ api = FastAPI(
     title="Raízes do Nordeste API",
     description="Implementação Back-end(MVP) para uma rede de restaurantes.",
 )
+
+# Exception Handler
+register_exception_handlers(api)
 
 # Include all grouped resources
 api.include_router(auth.router)

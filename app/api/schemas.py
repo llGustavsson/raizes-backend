@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
 from typing import List, Optional
 from app.domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
 
@@ -26,16 +26,16 @@ class UserResponse(BaseModel):
     full_name: str
     email: EmailStr
     role: RoleEnum
-    class Config:
-        orm_mode = True
-
+    
+    model_config = ConfigDict(from_attributes=True)
+    
 # --- Products ---
 class ProductResponse(BaseModel):
     id: int
     name: str
     price: float
-    class Config:
-        orm_mode = True
+    
+    model_config = ConfigDict(from_attributes=True)
 
 # --- Orders & Payments ---
 class OrderItemCreate(BaseModel):
@@ -50,8 +50,8 @@ class OrderResponse(BaseModel):
     id: int
     status: OrderStatusEnum
     total: float
-    class Config:
-        orm_mode = True
+    
+    model_config = ConfigDict(from_attributes=True)
 
 class PaymentMockRequest(BaseModel):
     order_id: int
