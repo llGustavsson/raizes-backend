@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from app.application.auth_service import AuthService
-from app.api.schemas import TokenResponse
-from app.api.dependencies import get_auth_service
+from app.api.schemas import UserResponse, TokenResponse
+from app.api.dependencies import get_auth_service, get_current_user
+from app.infrastructure.orm_models import User
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
@@ -20,3 +21,7 @@ def login(
     except PermissionError as e:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(e))
 
+@router.get("/verify", response_model=UserResponse)
+def verify_token(current_user: User = Depends(get_current_user)):
+    
+    return current_user

@@ -17,8 +17,8 @@ class PaymentService:
         if amount_paid < order.total:
             raise ValueError(f"Insufficient amount. Total is ${order.total}")
 
-        # Process successful payment -> move to Kitchen
-        order.status = OrderStatusEnum.KITCHEN
+        # Process successful payment
+        order.status = OrderStatusEnum.PAID
         self.repo.update_order(order)
         
         return order

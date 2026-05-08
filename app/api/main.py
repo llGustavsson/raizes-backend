@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.infrastructure.database import engine, Base, get_db
 from app.api.routers import auth, users, products, orders, payments
-from app.api.exception_handler import register_exception_handlers
+from app.domain.exception_handler import register_exception_handlers
 
 # Create tables if they don't exist
 Base.metadata.create_all(bind=engine)

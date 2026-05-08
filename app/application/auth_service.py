@@ -12,7 +12,7 @@ class AuthService:
         if not user or not verify_password(password, user.password_hash):
             raise ValueError("Invalid email or password")
             
-        # Business/Security Rule: Check if user is active (soft delete)
+        # Business/Security Rule: Check if user is active
         if not user.is_active:
             raise PermissionError("User account is disabled")
         
