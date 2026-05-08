@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import List, Optional
-from domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
+from app.domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
 
 # --- Auth & Users ---
 class UserCreate(BaseModel):

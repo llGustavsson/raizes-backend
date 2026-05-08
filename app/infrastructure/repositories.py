@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from infrastructure.orm_models import User, Product, Order, OrderItem
+from app.infrastructure.orm_models import User, Product, Order, OrderItem
 
 class AppRepository:
     def __init__(self, db: Session):

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from application.order_service import OrderService
-from infrastructure.orm_models import User
-from api.schemas import OrderCreate, OrderResponse
-from api.dependencies import get_order_service, get_current_user
+from app.application.order_service import OrderService
+from app.infrastructure.orm_models import User
+from app.api.schemas import OrderCreate, OrderResponse
+from app.api.dependencies import get_order_service, get_current_user
 
 router = APIRouter(prefix="/orders", tags=["Orders"])
 

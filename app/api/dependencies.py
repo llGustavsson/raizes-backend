@@ -2,14 +2,14 @@ import jwt
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from infrastructure.database import get_db
-from infrastructure.security import decode_token
-from infrastructure.repositories import AppRepository
-from application.user_service import UserService
-from application.order_service import OrderService
-from application.payment_service import PaymentService
-from application.auth_service import AuthService
-from application.product_service import ProductService
+from app.infrastructure.database import get_db
+from app.infrastructure.security import decode_token
+from app.infrastructure.repositories import AppRepository
+from app.application.user_service import UserService
+from app.application.order_service import OrderService
+from app.application.payment_service import PaymentService
+from app.application.auth_service import AuthService
+from app.application.product_service import ProductService
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 

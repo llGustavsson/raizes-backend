@@ -1,7 +1,7 @@
-from infrastructure.repositories import AppRepository
-from infrastructure.orm_models import User
-from infrastructure.security import hash_password
-from api.schemas import UserCreate, UserUpdate
+from app.infrastructure.repositories import AppRepository
+from app.infrastructure.orm_models import User
+from app.infrastructure.security import hash_password
+from app.api.schemas import UserCreate, UserUpdate
 
 class UserService:
     def __init__(self, repo: AppRepository):

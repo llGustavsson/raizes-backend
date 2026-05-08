@@ -1,7 +1,7 @@
-from infrastructure.repositories import AppRepository
-from infrastructure.orm_models import Order, OrderItem
-from domain.enums import OrderStatusEnum
-from api.schemas import OrderCreate
+from app.infrastructure.repositories import AppRepository
+from app.infrastructure.orm_models import Order, OrderItem
+from app.domain.enums import OrderStatusEnum
+from app.api.schemas import OrderCreate
 
 class OrderService:
     def __init__(self, repo: AppRepository):

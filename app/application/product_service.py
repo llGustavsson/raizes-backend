@@ -1,5 +1,5 @@
-from infrastructure.repositories import AppRepository
-from infrastructure.orm_models import Product
+from app.infrastructure.repositories import AppRepository
+from app.infrastructure.orm_models import Product
 
 class ProductService:
     def __init__(self, repo: AppRepository):

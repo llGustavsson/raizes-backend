@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from infrastructure.orm_models import User
-from api.schemas import UserCreate, UserUpdate, UserResponse
-from application.user_service import UserService
-from api.dependencies import get_current_user, get_user_service
+from app.infrastructure.orm_models import User
+from app.api.schemas import UserCreate, UserUpdate, UserResponse
+from app.application.user_service import UserService
+from app.api.dependencies import get_current_user, get_user_service
 
 router = APIRouter(prefix="/users", tags=["Users"])
 

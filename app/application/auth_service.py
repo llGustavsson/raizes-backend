@@ -1,5 +1,5 @@
-from infrastructure.repositories import AppRepository
-from infrastructure.security import verify_password, create_access_token
+from app.infrastructure.repositories import AppRepository
+from app.infrastructure.security import verify_password, create_access_token
 
 class AuthService:
     def __init__(self, repo: AppRepository):

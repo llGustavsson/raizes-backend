@@ -1,5 +1,5 @@
-from infrastructure.repositories import AppRepository
-from domain.enums import OrderStatusEnum
+from app.infrastructure.repositories import AppRepository
+from app.domain.enums import OrderStatusEnum
 
 class PaymentService:
     def __init__(self, repo: AppRepository):

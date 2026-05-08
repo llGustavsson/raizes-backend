@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from infrastructure.database import engine, Base, get_db
-from api.routers import auth, users, products, orders, payments
+from app.infrastructure.database import engine, Base, get_db
+from app.api.routers import auth, users, products, orders, payments
 
 # Create tables if they don't exist
 Base.metadata.create_all(bind=engine)
