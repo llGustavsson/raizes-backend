@@ -24,4 +24,13 @@ class OrderService:
             total += (product.price * item_in.quantity)
             
         order.total = total
-        return self.repo.create_order(order, items)
+        created_order = self.repo.create_order(order, items)
+        
+        self.repo.create_audit_log(
+            user_id=user_id,
+            action="CREATED",
+            resource_id=f"Order_{created_order.id}",
+            details=f"Channel: {order.channel.value} | Total: ${total:.2f}"
+        )
+        
+        return created_order

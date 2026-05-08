@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.infrastructure.orm_models import User, Product, Order, OrderItem
+from app.infrastructure.orm_models import User, Product, Order, OrderItem, AuditLog
 
 class AppRepository:
     def __init__(self, db: Session):
@@ -43,3 +43,14 @@ class AppRepository:
         self.db.commit()
         self.db.refresh(order)
         return order
+    
+    # Log methods
+    def create_audit_log(self, user_id: int, action: str, resource_id: str, details: str = ""):
+        log = AuditLog(
+            user_id=user_id,
+            action=action,
+            resource_id=resource_id,
+            details=details
+        )
+        self.db.add(log)
+        self.db.commit()

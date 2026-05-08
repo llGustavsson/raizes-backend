@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey, Enum, DateTime
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 from app.infrastructure.database import Base
 from app.domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
 
@@ -40,6 +40,17 @@ class Order(Base):
     channel = Column(Enum(ChannelEnum), nullable=False)
     status = Column(Enum(OrderStatusEnum), default=OrderStatusEnum.CREATED)
     total = Column(Float, default=0.0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.now(timezone.utc))
     
     items = relationship("OrderItem")
+    
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    action = Column(String, nullable=False)
+    resource_id = Column(String, nullable=False)
+    details = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.now(timezone.utc))
