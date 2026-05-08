@@ -4,13 +4,13 @@ from domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
 
 # --- Auth & Users ---
 class UserCreate(BaseModel):
-    name: str
+    full_name: str
     email: EmailStr
     password: str = Field(..., min_length=6)
     lgpd_consent: bool
 
 class UserUpdate(BaseModel):
-    name: Optional[str] = None
+    full_name: Optional[str] = None
     password: Optional[str] = None
 
 class LoginRequest(BaseModel):
@@ -23,7 +23,7 @@ class TokenResponse(BaseModel):
 
 class UserResponse(BaseModel):
     id: int
-    name: str
+    full_name: str
     email: EmailStr
     role: RoleEnum
     class Config:

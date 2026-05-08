@@ -12,7 +12,7 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column(String, nullable=False)
     role = Column(Enum(RoleEnum), default=RoleEnum.CUSTOMER)
-    lgpd = Column(Boolean, default=False)
+    lgpd_consent = Column(Boolean, default=False)
     is_active = Column(Boolean, default=True)
 
 class Product(Base):
