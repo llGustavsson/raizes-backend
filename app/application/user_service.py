@@ -24,7 +24,7 @@ class UserService:
 
     def update_profile(self, current_user: User, update_data: UserUpdate) -> User:
         if update_data.full_name:
-            current_user.full_name = update_data.name
+            current_user.full_name = update_data.full_name
         if update_data.password:
             current_user.password_hash = hash_password(update_data.password)
             

@@ -13,8 +13,6 @@ class PaymentService:
         if not order:
             raise ValueError("Order not found!")
         
-        if order.status != OrderStatusEnum.CREATED:
-            raise ValueError("The order has already been processed")
 
         # Random External Payment Failure 
         is_gateway_approved = random.random() <= 0.80 
