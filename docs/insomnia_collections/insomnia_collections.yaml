@@ -1,0 +1,382 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: API's Raizes
+meta:
+  id: wrk_9c29ed65e15b40df83f9e5f0bc1027be
+  created: 1778284643749
+  modified: 1778344983709
+  description: ""
+collection:
+  - url: "{{ _.base_url.base_url }}/users/signup"
+    name: T01 - SignUp
+    meta:
+      id: req_a346bef5f84c4036a9d80672ed5231f8
+      created: 1778285073268
+      modified: 1778336744913
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982552
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "full_name": "User Test",
+          "email": "user@test.com",
+          "password": "test123",
+          "lgpd_consent": true
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/auth/login"
+    name: T02 - LogIn
+    meta:
+      id: req_d26db17e45d8431b9e3f1a8f464cb72c
+      created: 1778286085986
+      modified: 1778336762219
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982502
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: username
+          value: user@test.com
+          description: ""
+          disabled: false
+        - name: password
+          value: test123
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/products"
+    name: T03 - Products List
+    meta:
+      id: req_5f91794f53bc4e6a9e0817813c58d88c
+      created: 1778287147019
+      modified: 1778336902791
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982477
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: ""
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/orders"
+    name: T04 - Create Order
+    meta:
+      id: req_66417b5a66a04fc6b68a752bf2ca99e2
+      created: 1778288083872
+      modified: 1778337289297
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982414.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "channel": "WEB",
+          "items": [
+            {
+              "product_id": 1,
+              "quantity": 1
+            }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzc4MzM5MDYxfQ.JBb8X-WKH01xnKr9VHYYBZ0UIryCDhonhbFT7OXPAHA
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/orders"
+    name: T05 - Order with Unavailable Products
+    meta:
+      id: req_c65272b1a22e46618d8709235e431ec2
+      created: 1778288281298
+      modified: 1778339000266
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982314.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "channel": "WEB",
+          "items": [
+            {
+              "product_id": 9,
+              "quantity": 1
+            }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzc4MzM5MDYxfQ.JBb8X-WKH01xnKr9VHYYBZ0UIryCDhonhbFT7OXPAHA
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/payments/mock"
+    name: T06 - Payment Approved
+    meta:
+      id: req_9c249a8b62214d1c9d7b092b8735672d
+      created: 1778288530083
+      modified: 1778338499742
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982214.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "order_id": 4,
+          "amount_paid": 25.9
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzc4MzM5MDYxfQ.JBb8X-WKH01xnKr9VHYYBZ0UIryCDhonhbFT7OXPAHA
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/payments/mock"
+    name: T07 - Payment Denied
+    meta:
+      id: req_7d00ef3528584c7e94bcdc307c5ff281
+      created: 1778288662512
+      modified: 1778338565592
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982114.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "order_id": 5,
+          "amount_paid": 25.9
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzc4MzM5MDYxfQ.JBb8X-WKH01xnKr9VHYYBZ0UIryCDhonhbFT7OXPAHA
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/users/signup"
+    name: T08 - SgnUp without LGPD consent
+    meta:
+      id: req_c843cb47f2474771b74807e75ad20188
+      created: 1778288851597
+      modified: 1778291428664
+      isPrivate: false
+      description: ""
+      sortKey: -1778284982014.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "full_name": "User Test",
+          "email": "user@123456.com",
+          "password": "test123",
+          "lgpd_consent": false
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/users/me"
+    name: T09 - User Password Update
+    meta:
+      id: req_ee4891f99eaf44d58444279a216daaaf
+      created: 1778289197432
+      modified: 1778338924794
+      isPrivate: false
+      description: ""
+      sortKey: -1778284981914.5
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "full_name": "",
+          "password": "test123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzc4MzM5MDYxfQ.JBb8X-WKH01xnKr9VHYYBZ0UIryCDhonhbFT7OXPAHA
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url.base_url }}/auth/login"
+    name: T10 - Login with wrong User
+    meta:
+      id: req_266c9317a22d4328bc655862f3d7468b
+      created: 1778289204218
+      modified: 1778338969918
+      isPrivate: false
+      description: ""
+      sortKey: -1778284981814.5
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: username
+          value: wrong@test.com
+          description: ""
+          disabled: false
+        - name: password
+          value: test123
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_9c280b71783be81bb5103fe1fd129c79dc83e7a9
+    created: 1778284643754
+    modified: 1778284643754
+environments:
+  name: Base Environment
+  meta:
+    id: env_9c280b71783be81bb5103fe1fd129c79dc83e7a9
+    created: 1778284643752
+    modified: 1778284750387
+    isPrivate: false
+  data:
+    base_url:
+      base_url: http://127.0.0.1:8000
