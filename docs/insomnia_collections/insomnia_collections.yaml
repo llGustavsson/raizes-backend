@@ -203,7 +203,7 @@ collection:
       mimeType: application/json
       text: |-
         {
-          "order_id": 4,
+          "order_id": 1,
           "amount_paid": 25.9
         }
     headers:
