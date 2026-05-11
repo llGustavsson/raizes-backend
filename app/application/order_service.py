@@ -12,7 +12,7 @@ class OrderService:
         items = []
         total = 0.0
         
-        # Business Logic: Validate availability and calculate total securely
+        # Validate availability and calculate total
         for item_in in order_in.items:
             product = self.repo.get_product_by_id(item_in.product_id)
             if not product:

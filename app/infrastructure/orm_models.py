@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from app.infrastructure.database import Base
 from app.domain.enums import RoleEnum, ChannelEnum, OrderStatusEnum
 
+# --- User ---
 class User(Base):
     __tablename__ = "users"
     
@@ -15,6 +16,7 @@ class User(Base):
     lgpd_consent = Column(Boolean, default=False)
     is_active = Column(Boolean, default=True)
 
+# --- Product ---
 class Product(Base):
     __tablename__ = "products"
     
@@ -23,6 +25,7 @@ class Product(Base):
     price = Column(Float, nullable=False)
     is_available = Column(Boolean, default=True)
 
+# --- Order ---
 class OrderItem(Base):
     __tablename__ = "order_items"
     
@@ -45,6 +48,7 @@ class Order(Base):
     items = relationship("OrderItem")
     
 
+# --- Logs ---
 class AuditLog(Base):
     __tablename__ = "audit_logs"
     

@@ -45,11 +45,11 @@ class AppRepository:
         return order
     
     # Log methods
-    def create_audit_log(self, user_id: int, action: str, resource_id: str, details: str = ""):
+    def create_audit_log(self, user_id: int, status: str, order_id: str, details: str = ""):
         log = AuditLog(
             user_id=user_id,
-            action=action,
-            resource_id=resource_id,
+            status=status,
+            order_id=order_id,
             details=details
         )
         self.db.add(log)

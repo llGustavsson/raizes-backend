@@ -6,5 +6,4 @@ class ProductService:
         self.repo = repo
 
     def get_active_menu(self) -> list[Product]:
-        # Currently just a pass-through to the repository, but ready for future business rules
         return self.repo.get_available_products()
