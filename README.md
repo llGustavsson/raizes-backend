@@ -1,7 +1,6 @@
 # raizes-backend
 Projeto Raizes Back-end utilizando FastAPI
 
-
 # API 
 API RESTful desenvolvida para o gerenciamento de pedidos, cardápio, autenticação e simulação de pagamentos de uma rede de restaurantes.
 
@@ -23,7 +22,7 @@ API RESTful desenvolvida para o gerenciamento de pedidos, cardápio, autenticaç
 
 ### 1. Clonar o repositório
 ```bash
-git clone [https://github.com/llGustavsson/raizes-backend.git]
+git clone https://github.com/llGustavsson/raizes-backend.git
 cd raizes-backend
 ```
 ### 2. Criar e ativar o ambiente virtual
@@ -31,9 +30,9 @@ cd raizes-backend
 python -m venv .venv
 ```
 
-    Windows:` .\.venv\Scripts\activate`
+    Windows: .\.venv\Scripts\activate
 
-    Linux / Mac: `source .venv/bin/activate`
+    Linux / Mac: source .venv/bin/activate
 
 ### 3. Instalar as dependências
 ```bash
@@ -75,9 +74,9 @@ A API estará disponível localmente em: `http://127.0.0.1:8000`
 
 A documentação interativa dos contratos (Request/Response) e a interface de testes direta no navegador são geradas automaticamente pelo FastAPI.
 
-    Swagger UI: `http://127.0.0.1:8000/docs`
+    Swagger UI: http://127.0.0.1:8000/docs
 
-    ReDoc: `http://127.0.0.1:8000/redoc`
+    ReDoc: http://127.0.0.1:8000/redoc
 
 ## 7. Endpoints Principais
 
@@ -124,7 +123,7 @@ Cenários Cobertos:
 | T10 |	Login com email errado       | Negativo | POST /auth/login   | 401 Unauthorized |
 
 
-##9. Segurança e Privacidade (LGPD)
+## 9. Segurança e Privacidade (LGPD)
 
     Hashing: Senhas armazenadas utilizando criptografia robusta (Argon2).
 
