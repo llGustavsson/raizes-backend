@@ -101,11 +101,11 @@ Arquivo: `docs/insomnia_collection.json`
 
 Como executar os testes:
 
-    Abra o Insomnia e importe o arquivo JSON acima.
+Abra o Insomnia e importe o arquivo JSON acima.
 
-    O ambiente Base Environment já está configurado com a base_url (http://127.0.0.1:8000). Mude para o seu localhost se necessário
+O ambiente Base Environment já está configurado com a base_url (http://127.0.0.1:8000). Mude para o seu localhost se necessário
 
-    Execute as requisições na ordem abaixo. Não esqueça de copiar o token gerado no response do passo T02 e colar na aba Auth (Bearer) dos endpoints protegidos.
+Execute as requisições na ordem abaixo. Não esqueça de copiar o token gerado no response do passo T02 e colar na aba Auth (Bearer) dos endpoints protegidos.
 
     
 Cenários Cobertos:
@@ -125,8 +125,8 @@ Cenários Cobertos:
 
 ## 9. Segurança e Privacidade (LGPD)
 
-    Hashing: Senhas armazenadas utilizando criptografia robusta (Argon2).
+Hashing: Senhas armazenadas utilizando criptografia robusta (Argon2).
 
-    Consentimento: O cadastro exige um campo explícito de opt-in (lgpd_consent: true).
+Consentimento: O cadastro exige um campo explícito de opt-in (lgpd_consent: true).
 
-    Auditoria: Operações sensíveis financeiras (criação de pedido e pagamentos) geram entradas automáticas no banco de dados para garantir rastreabilidade, sem expor dados pessoais desnecessários.
+Auditoria: Operações sensíveis financeiras (criação de pedido e pagamentos) geram entradas automáticas no banco de dados para garantir rastreabilidade, sem expor dados pessoais desnecessários.
