@@ -30,9 +30,9 @@ cd raizes-backend
 python -m venv .venv
 ```
 
-    Windows: .\.venv\Scripts\activate
+Windows: `.\.venv\Scripts\activate`
 
-    Linux / Mac: source .venv/bin/activate
+Linux / Mac: `source .venv/bin/activate`
 
 ### 3. Instalar as dependências
 ```bash
@@ -45,13 +45,14 @@ pip install -r requirements.txt
 Crie um arquivo .env na raiz do projeto baseado no exemplo fornecido:
 
 ```bash
-cp .env.example .env
+nano .env
+
 ```
 Preencha o arquivo .env com as suas configurações:
 ```bash
-SECRET_KEY=sua_chave_secreta_tcc_segura_aqui
+SECRET_KEY=sua_chave_secreta
 ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=60
+EXPIRE_MINUTES=30
 DATABASE_URL=sqlite:////home/user/folder-example/raizes-backend/test.db (coloque um PATH absoluto)
 ```
 ### 5. Iniciar o Banco de Dados e a API
@@ -74,9 +75,9 @@ A API estará disponível localmente em: `http://127.0.0.1:8000`
 
 A documentação interativa dos contratos (Request/Response) e a interface de testes direta no navegador são geradas automaticamente pelo FastAPI.
 
-    Swagger UI: http://127.0.0.1:8000/docs
+Swagger UI: `http://127.0.0.1:8000/docs`
 
-    ReDoc: http://127.0.0.1:8000/redoc
+ReDoc: `http://127.0.0.1:8000/redoc`
 
 ## 7. Endpoints Principais
 
@@ -90,7 +91,7 @@ A lista abaixo resume os recursos implementados. Para detalhes de payloads e sta
 | GET    | /products     |Listagem de cardápio                   | JWT (ambos) |
 | POST   | /orders       |Criação de um novo pedido              |JWT (Cliente)|
 | POST   | /payments/mock|Simulação de processamento de pagamento|JWT (Cliente)|
-| GET    | /auth/verify     |Verifica Token JWT                  | JWT (ambos) |
+| GET    | /auth/verify  |Verifica Token JWT                     | JWT (ambos) |
 
 
 ## 8. Testes da API (Insomnia)
