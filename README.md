@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 ### 4. Configurar Variáveis de Ambiente (.env)
 
-Crie um arquivo .env na raiz do projeto baseado no exemplo fornecido:
+Crie um arquivo .env na raiz do projeto (código linux):
 
 ```bash
 nano .env
@@ -87,11 +87,11 @@ A lista abaixo resume os recursos implementados. Para detalhes de payloads e sta
 | ------ | ------------- | ------------------------------------- | ----------- |
 | POST   | /users/signup | Cadastro de usuário                   | Público     |
 | POST   | /auth/login   | Login e emissão de token JWT          | Público     |
-| PATCH  | /users/me     | Atualização de senha/dados do usuário | JWT (ambos) |
-| GET    | /products     |Listagem de cardápio                   | JWT (ambos) |
-| POST   | /orders       |Criação de um novo pedido              |JWT (Cliente)|
-| POST   | /payments/mock|Simulação de processamento de pagamento|JWT (Cliente)|
-| GET    | /auth/verify  |Verifica Token JWT                     | JWT (ambos) |
+| PATCH  | /users/me     | Atualização de senha/dados do usuário | JWT Token |
+| GET    | /products     |Listagem de cardápio                   | JWT Token|
+| POST   | /orders       |Criação de um novo pedido              |JWT Token|
+| POST   | /payments/mock|Simulação de processamento de pagamento|JWT Token|
+| GET    | /auth/verify  |Verifica Token JWT                     | JWT  Token|
 
 
 ## 8. Testes da API (Insomnia)
@@ -106,7 +106,9 @@ Abra o Insomnia e importe o arquivo JSON acima.
 
 O ambiente Base Environment já está configurado com a base_url (http://127.0.0.1:8000). Mude para o seu localhost se necessário
 
-Execute as requisições na ordem abaixo. Não esqueça de copiar o token gerado no response do passo T02 e colar na aba Auth (Bearer) dos endpoints protegidos.
+Execute as requisições na ordem abaixo. 
+
+**Não esqueça de copiar o token gerado no response do passo T02 e colar na aba Auth (Bearer) dos endpoints protegidos**.
 
     
 Cenários Cobertos:
@@ -115,12 +117,12 @@ Cenários Cobertos:
 | T01 |	SignUp	                     | Positivo | POST /users/signup | 201 Created      |
 | T02 |	LogIn	                     | Positivo | POST /auth/login	 | 200 OK + JWT     |
 | T03 |	Products                     | Positivo | GET /products	     | 200 OK (Lista)   |
-| T04 | Create Order                 | Positivo | POST /orders	     | 201 Created      |
-| T05 |	Create Order                 | Negativo | POST /orders	     | 400 Bad Request  |
-| T06 |	Payment Approved             | Positivo | POST /payments/mock| Status PAID      |
-| T07 |	Payment Repaying             | Negativo | POST /payments/mock| Status CANCELED  |
+| T04 | Create Order (protegido)                | Positivo | POST /orders	     | 201 Created      |
+| T05 |	Create Order (protegido)                | Negativo | POST /orders	     | 400 Bad Request  |
+| T06 |	Payment Approved (protegido)            | Positivo | POST /payments/mock| Status PAID      |
+| T07 |	Payment Repaying (protegido)           | Negativo | POST /payments/mock| Status CANCELED  |
 | T08 |	SignUp sem consentimento LGPD| Negativo | POST /users/signup | 422 Unprocessable|
-| T09 |	User Password Update         | Positivo | PATCH /users/me	 | 200 OK           |
+| T09 |	User Password Update (protegido)        | Positivo | PATCH /users/me	 | 200 OK           |
 | T10 |	Login com email errado       | Negativo | POST /auth/login   | 401 Unauthorized |
 
 
